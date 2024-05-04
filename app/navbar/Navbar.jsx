@@ -39,7 +39,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
 
-                    {links.map((link) => <li key={link.id} className="nav-item">
+                    {links.map((link, index) => <li key={index} className="nav-item">
                             <Link className={pathName === link.path? 'nav-link bg-info': 'nav-link'} href={link.path}>
                                 {link.link}
                             </Link>
