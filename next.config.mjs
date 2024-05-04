@@ -1,4 +1,32 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {};
 
-export default nextConfig;
+// module.exports = {
+//     images: {
+//       remotePatterns: [
+//         {
+//           protocol: 'https',
+//           hostname: 's3.amazonaws.com',
+//           port: '',
+//           pathname: '/my-bucket/**',
+//         },
+//       ],
+//     },
+//   }
+
+// export default nextConfig;
+const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'ecommerce.routemisr.com',
+          port: '',
+          pathname: '/**',
+        },
+      ],
+    },
+  };
+  
+  export default nextConfig;
+  

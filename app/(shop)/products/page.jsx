@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
@@ -31,7 +32,7 @@ export default async function Products() {
         {products.map((product) => <div key={product.id} className="col-md-2">
           <div className="product">
             <Link href={`/products/${product.id}`}>
-              <img className='w-100' src={product.imageCover} alt={product.title} />
+              <Image className='w-100' width={300} height={400} src={product.imageCover} alt={product.title} />
               <h2 className='h6'>{product.title}</h2>
             </Link>
           </div>
