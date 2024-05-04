@@ -1,12 +1,24 @@
-'use client';
+"use client";
 
 import React from 'react'
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
+
 
 export default function Navbar() {
 
+    // Can't use any hook in server but can use hooks in client using "use client";
+    let pathName = usePathname();
 
-    console.log("Navbar ......");
+    let links = [
+        {path: '/', link: 'Home'},
+        {path: '/products', link: 'Products'},
+        {path: '/categories', link: 'Categories'},
+        {path: '/cart', link: 'Cart'},
+    ];
+
+
+    // console.log(pathName);
 
     return <>
         <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -26,26 +38,30 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-                        <li className="nav-item">
+
+                    {links.map((link) => <li key={link.id} className="nav-item">
+                            <Link className={pathName === link.path? 'nav-link bg-info': 'nav-link'} href={link.path}>
+                                {link.link}
+                            </Link>
+                        </li>)}
+
+
+                        {/* <li className="nav-item">
                             <Link className="nav-link" href="/">
                                 Home
                             </Link>
                         </li>
+                        
                         <li className="nav-item">
-                            <Link className="nav-link" href="/products">
-                                Products
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/categories">
+                            <Link className={pathName === '/categories'? 'nav-link bg-info': 'nav-link'} href="/categories">
                                 Categories
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/cart">
+                            <Link className={pathName === '/cart'? 'nav-link bg-info': 'nav-link'} href="/cart">
                                 Cart
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
